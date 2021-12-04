@@ -16,7 +16,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "naive-ui": "^2.21.3",
     "pinia": "^2.0.4",
+    "vfonts": "^0.1.0",
     "vue": "^3.2.22",
     "vue-router": "^4.0.12"
   },
@@ -35,7 +37,10 @@
     "lint-staged": "^12.1.2",
     "mrm": "^3.0.10",
     "prettier": "^2.5.1",
+    "sass": "^1.44.0",
     "typescript": "~4.5.2",
+    "unplugin-auto-import": "^0.5.1",
+    "unplugin-vue-components": "^0.17.4",
     "vite": "^2.6.14",
     "vite-plugin-compression": "^0.3.6",
     "vue-tsc": "^0.29.6"
