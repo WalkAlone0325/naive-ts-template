@@ -111,3 +111,44 @@ module.exports = {
   ]
 }
 ```
+
+## 打包规范相关
+
+`pnpm add vite-plugin-compression -D`
+
+```js
+base: './',
+  plugins: [
+    vue(),
+    vueJsx(),
+    // prod generator .gz files
+    viteCompression({
+      verbose: true,
+      disable: false,
+      threshold: 10240,
+      algorithm: 'gzip',
+      ext: '.gz'
+    })
+  ],
+  resolve: {
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url))
+    }
+  },
+  server: {
+    host: '0.0.0.0',
+    port: 3000,
+    open: true,
+    https: false,
+    proxy: {}
+  },
+  build: {
+    terserOptions: {
+      // prod clear console debugger
+      compress: {
+        drop_console: true,
+        drop_debugger: true
+      }
+    }
+  }
+```

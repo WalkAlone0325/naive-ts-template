@@ -37,6 +37,7 @@
     "prettier": "^2.5.1",
     "typescript": "~4.5.2",
     "vite": "^2.6.14",
+    "vite-plugin-compression": "^0.3.6",
     "vue-tsc": "^0.29.6"
   },
   "husky": {
