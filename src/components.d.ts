@@ -13,6 +13,7 @@ declare module 'vue' {
     IconSupport: typeof import('./components/icons/IconSupport.vue')['default']
     IconTooling: typeof import('./components/icons/IconTooling.vue')['default']
     NAvatar: typeof import('naive-ui')['NAvatar']
+    NBadge: typeof import('naive-ui')['NBadge']
     NButton: typeof import('naive-ui')['NButton']
     NCheckbox: typeof import('naive-ui')['NCheckbox']
     NCheckboxGroup: typeof import('naive-ui')['NCheckboxGroup']

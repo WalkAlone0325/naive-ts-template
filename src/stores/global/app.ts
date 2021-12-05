@@ -1,8 +1,8 @@
 export const useApp = defineStore({
   id: 'app',
   state: () => ({
-    collapsed: true,
-    drawerActive: true
+    collapsed: false,
+    drawerActive: false
   }),
   actions: {
     toggleDrawer() {

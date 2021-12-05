@@ -1,7 +1,5 @@
-import { darkTheme, GlobalTheme } from 'naive-ui'
-
 export default {
-  globalTheme: darkTheme,
+  globalTheme: 'lightTheme',
   sideHeaderTheme: 'dark',
   themeEditor: false,
   menuMode: 'vertical',
@@ -17,7 +15,7 @@ export default {
 export interface ISettings {
   /** 主题 */
   // 主题颜色
-  globalTheme: GlobalTheme | null | undefined
+  globalTheme: 'darkTheme' | 'lightTheme' | 'sideDarkTheme'
   // 侧边栏和顶栏主题颜色
   sideHeaderTheme: 'dark' | 'light' | 'header-dark'
   // 主题编辑器

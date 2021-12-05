@@ -1,23 +1,26 @@
 <template>
-  <n-drawer :show="drawerActive" @update:show="toggleDrawer" :width="340" placement="right">
+  <n-drawer :show="drawerActive" @update:show="toggleDrawer" :width="300" placement="right">
     <n-drawer-content title="全局配置">
       <!-- <n-divider>虚线</n-divider> -->
       <div>
         <h4>整体风格设置</h4>
         <n-space>
           <tooltip-com tip-title="亮色菜单">
-            <div>
+            <div class="svg-container" @click="() => changeSetting('globalTheme', 'lightTheme')">
               <n-image preview-disabled width="60" :src="lightSvg" />
+              <n-badge dot color="#19be6b" v-if="globalTheme === 'lightTheme'" />
             </div>
           </tooltip-com>
           <tooltip-com tip-title="暗色菜单">
-            <div>
+            <div class="svg-container" @click="() => changeSetting('globalTheme', 'sideDarkTheme')">
               <n-image preview-disabled width="60" :src="sideDarkSvg" />
+              <n-badge dot color="#19be6b" v-if="globalTheme === 'sideDarkTheme'" />
             </div>
           </tooltip-com>
           <tooltip-com tip-title="暗黑模式">
-            <div>
+            <div class="svg-container" @click="() => changeSetting('globalTheme', 'darkTheme')">
               <n-image preview-disabled width="60" :src="darkSvg" />
+              <n-badge dot color="#19be6b" v-if="globalTheme === 'darkTheme'" />
             </div>
           </tooltip-com>
         </n-space>
@@ -110,9 +113,11 @@ const {
   showTrigger,
   showBreadcrumb,
   showBreadcrumbIcon,
-  changeSetting,
-  adminTitle
+  adminTitle,
+  globalTheme,
+  changeSetting
 } = toRefs(useSettings())
+// const settingsStore = useSettings()
 
 const triggerOptions = ref([
   { label: '三角', value: 'arrow-circle' },
@@ -121,13 +126,22 @@ const triggerOptions = ref([
 ]) as unknown as SelectMixedOption[]
 </script>
 
-<style>
-.n-image {
-  cursor: pointer;
-}
+<style lang="scss" scoped>
 .setting-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.svg-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+</style>
+
+<style>
+.n-image {
+  cursor: pointer;
 }
 </style>

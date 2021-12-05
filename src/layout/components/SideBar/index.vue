@@ -1,6 +1,7 @@
 <template>
   <n-layout-sider
     collapse-mode="width"
+    :inverted="inverted"
     :show-trigger="showTrigger"
     :bordered="showBorder"
     :collapsed="collapsed"
@@ -11,6 +12,7 @@
   >
     <TheLogo v-show="showLogo" :collapsed="collapsed" :adminTitle="adminTitle" />
     <n-menu
+      :inverted="inverted"
       :collapsed="collapsed"
       :collapsed-width="64"
       :collapsed-icon-size="24"
@@ -36,7 +38,9 @@ withDefaults(
 )
 
 const { collapsed, toggleCollapsed } = toRefs(useApp())
-const { adminTitle } = toRefs(useSettings())
+const { adminTitle, globalTheme } = toRefs(useSettings())
+
+const inverted = computed(() => globalTheme.value === 'sideDarkTheme')
 
 const menuOptions = ref([
   {

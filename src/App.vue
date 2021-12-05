@@ -1,12 +1,22 @@
 <script setup lang="ts">
 import { useSettings } from '@/stores'
-import { zhCN, dateZhCN } from 'naive-ui'
+import { darkTheme, zhCN, dateZhCN } from 'naive-ui'
 
 const { globalTheme } = toRefs(useSettings())
+
+// const THEME_LIST = {
+//   darkTheme: darkTheme,
+//   lightTheme: null,
+//   sideDarkTheme: ''
+// }
 </script>
 
 <template>
-  <n-config-provider :theme="globalTheme" :date-locale="dateZhCN" :locale="zhCN">
+  <n-config-provider
+    :theme="globalTheme === 'darkTheme' ? darkTheme : undefined"
+    :date-locale="dateZhCN"
+    :locale="zhCN"
+  >
     <n-message-provider>
       <n-notification-provider>
         <n-loading-bar-provider>

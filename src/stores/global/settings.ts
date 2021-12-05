@@ -32,7 +32,8 @@ export const useSettings = defineStore({
     adminTitle
   }),
   actions: {
-    changeSetting(settingKey: TSettingKey, data: string | boolean) {
+    changeSetting(settingKey: TSettingKey, data?: string | boolean) {
+      console.log(settingKey, data)
       this[settingKey] = data
     }
   }
