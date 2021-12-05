@@ -1,15 +1,32 @@
 <template>
-  <n-layout class="layout-container" has-sider>
-    <SideBar />
+  <n-layout class="layout-container" has-sider position="absolute">
+    <SideBar :showLogo="showLogo" :showTrigger="showTrigger" :showBorder="showBorder" />
     <n-layout>
-      <n-layout-header>头部</n-layout-header>
-      <n-layout-content native-scrollbar content-style="padding: 24px;">内容</n-layout-content>
+      <n-scrollbar>
+        <NavHeader />
+        <n-layout-content
+          :position="isFixedHeader ? 'absolute' : 'static'"
+          :style="isFixedHeader ? { top: '64px' } : {}"
+          class="layout-content"
+          native-scrollbar
+          content-style="padding: 24px;"
+        >
+          <n-scrollbar>
+            <AppMain />
+          </n-scrollbar>
+        </n-layout-content>
+      </n-scrollbar>
     </n-layout>
   </n-layout>
 </template>
 
 <script lang="ts" setup>
 import SideBar from './components/SideBar/index.vue'
+import NavHeader from './components/NavHeader/index.vue'
+import AppMain from './components/AppMain.vue'
+import { useSettings } from '@/stores'
+
+const { isFixedHeader, showLogo, showTrigger, showBorder } = toRefs(useSettings())
 </script>
 
 <script lang="ts">
@@ -18,18 +35,9 @@ export default {
 }
 </script>
 
-<style>
-.n-layout-header,
-.n-layout-footer {
-  background: rgba(128, 128, 128, 0.2);
-  padding: 24px;
-}
-
-.n-layout-sider {
-  background: rgba(128, 128, 128, 0.3);
-}
-
-.n-layout-content {
-  background: rgba(128, 128, 128, 0.4);
+<style lang="scss" scoped>
+.layout-content {
+  width: 100%;
+  height: 100%;
 }
 </style>

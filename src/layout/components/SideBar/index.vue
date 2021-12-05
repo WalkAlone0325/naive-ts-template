@@ -1,19 +1,69 @@
 <template>
   <n-layout-sider
-    collapse-mode="transform"
-    content-style="padding: 24px;"
-    show-trigger="bar"
-    bordered
-    :collapse-width="120"
+    collapse-mode="width"
+    :show-trigger="props.showTrigger"
+    :bordered="props.showBorder"
+    :collapsed="collapsed"
+    :collapsed-width="64"
     :width="240"
+    @expand="toggleCollapsed"
+    @collapse="toggleCollapsed"
   >
-    侧边栏
+    <TheLogo v-show="props.showLogo" :collapsed="collapsed" />
+    <n-menu
+      :collapsed="collapsed"
+      :collapsed-width="64"
+      :collapsed-icon-size="24"
+      :options="menuOptions"
+      v-model:value="activeKey"
+    />
   </n-layout-sider>
 </template>
 
-<script lang="ts" setup></script>
-<script>
+<script lang="ts" setup>
+import TheLogo from './TheLogo.vue'
+import { LogOutOutline } from '@vicons/ionicons5'
+import { Component } from 'vue'
+import { useApp } from '@/stores'
+
+const props = withDefaults(
+  defineProps<{
+    showTrigger: boolean | 'bar' | 'arrow-circle' | undefined
+    showLogo: boolean
+    showBorder: boolean
+  }>(),
+  {}
+)
+
+const { collapsed, toggleCollapsed } = toRefs(useApp())
+
+const menuOptions = ref([
+  {
+    label: '且听风吟',
+    key: 'hear-the-wind-sing',
+    icon: renderIcon(LogOutOutline)
+  },
+  {
+    label: '1973年的弹珠玩具',
+    key: 'pinball-1973',
+    icon: renderIcon(LogOutOutline),
+    children: [
+      {
+        label: '鼠',
+        key: 'rat'
+      }
+    ]
+  }
+])
+
+function renderIcon(icon: Component) {
+  return () => h(NIcon, null, { default: () => h(icon) })
+}
+
+const activeKey = ref(null)
+</script>
+<script lang="ts">
 export default {
-  name: 'BaseLayout'
+  name: 'SideBar'
 }
 </script>

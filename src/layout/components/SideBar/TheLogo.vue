@@ -1,0 +1,48 @@
+<template>
+  <n-collapse-transition class="logo-container" show>
+    <n-icon size="30" class="logo-icon">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 261.76 226.69"
+        xmlns:v="https://vecta.io/nano"
+      >
+        <path
+          d="M161.096.001l-30.225 52.351L100.647.001H-.005l130.877 226.688L261.749.001z"
+          fill="#41b883"
+        />
+        <path
+          d="M161.096.001l-30.225 52.351L100.647.001H52.346l78.526 136.01L209.398.001z"
+          fill="#34495e"
+        />
+      </svg>
+    </n-icon>
+
+    <n-gradient-text class="logo-text" v-show="!props.collapsed" :size="18" type="info">
+      后台管理系统
+    </n-gradient-text>
+  </n-collapse-transition>
+</template>
+
+<script lang="ts" setup>
+// props
+const props = withDefaults(
+  defineProps<{
+    collapsed: boolean
+  }>(),
+  {}
+)
+</script>
+
+<style lang="scss" scoped>
+.logo-container {
+  width: 100%;
+  margin-top: 12px;
+  padding: 6px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .logo-text {
+    margin-left: 10px;
+  }
+}
+</style>

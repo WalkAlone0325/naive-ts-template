@@ -14,8 +14,17 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx(),
-    AutoImport({ resolvers: [NaiveUiResolver()], dts: 'src/auto-import.d.ts' }),
-    Components({ resolvers: [NaiveUiResolver()] }),
+    AutoImport({
+      resolvers: [NaiveUiResolver()],
+      dts: 'src/auto-import.d.ts',
+      // '@vueuse/core', '@vueuse/head'
+      imports: ['vue', 'vue-router', 'pinia']
+    }),
+    Components({
+      dirs: ['src/components'],
+      resolvers: [NaiveUiResolver()],
+      dts: 'src/components.d.ts'
+    }),
     // prod generator .gz files
     viteCompression({
       verbose: true,
