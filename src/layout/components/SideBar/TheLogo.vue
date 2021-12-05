@@ -18,7 +18,7 @@
     </n-icon>
 
     <n-gradient-text class="logo-text" v-show="!props.collapsed" :size="18" type="info">
-      后台管理系统
+      {{ adminTitle }}
     </n-gradient-text>
   </n-collapse-transition>
 </template>
@@ -28,6 +28,7 @@
 const props = withDefaults(
   defineProps<{
     collapsed: boolean
+    adminTitle?: string
   }>(),
   {}
 )

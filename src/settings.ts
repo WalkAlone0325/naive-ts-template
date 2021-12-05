@@ -28,7 +28,7 @@ export interface ISettings {
 
   /** 控件 */
   // showTrigger
-  showTrigger: boolean | 'bar' | 'arrow-circle' | undefined
+  showTrigger: boolean | 'bar' | 'arrow-circle'
   // Logo
   showLogo: boolean
   // border

@@ -1,15 +1,15 @@
 <template>
   <n-layout-sider
     collapse-mode="width"
-    :show-trigger="props.showTrigger"
-    :bordered="props.showBorder"
+    :show-trigger="showTrigger"
+    :bordered="showBorder"
     :collapsed="collapsed"
     :collapsed-width="64"
     :width="240"
     @expand="toggleCollapsed"
     @collapse="toggleCollapsed"
   >
-    <TheLogo v-show="props.showLogo" :collapsed="collapsed" />
+    <TheLogo v-show="showLogo" :collapsed="collapsed" :adminTitle="adminTitle" />
     <n-menu
       :collapsed="collapsed"
       :collapsed-width="64"
@@ -24,9 +24,9 @@
 import TheLogo from './TheLogo.vue'
 import { LogOutOutline } from '@vicons/ionicons5'
 import { Component } from 'vue'
-import { useApp } from '@/stores'
+import { useApp, useSettings } from '@/stores'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     showTrigger: boolean | 'bar' | 'arrow-circle' | undefined
     showLogo: boolean
@@ -36,6 +36,7 @@ const props = withDefaults(
 )
 
 const { collapsed, toggleCollapsed } = toRefs(useApp())
+const { adminTitle } = toRefs(useSettings())
 
 const menuOptions = ref([
   {

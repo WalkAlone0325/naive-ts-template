@@ -1,7 +1,7 @@
 <template>
   <n-dropdown trigger="hover" :show-arrow="true" :options="dropOptions" @select="handleSelect">
     <n-avatar
-      style="cursor: pointer"
+      style="cursor: pointer; margin-left: 20px"
       round
       size="large"
       src="https://07akioni.oss-cn-beijing.aliyuncs.com/07akioni.jpeg"
