@@ -27,14 +27,16 @@
 
         <h4>导航模式</h4>
         <n-space>
-          <tooltip-com tip-title="亮色菜单">
-            <div>
+          <tooltip-com tip-title="侧边菜单">
+            <div class="svg-container" @click="() => changeSetting('menuMode', 'vertical')">
               <n-image preview-disabled width="60" :src="sideDarkSvg" />
+              <n-badge dot color="#19be6b" v-if="menuMode === 'vertical'" />
             </div>
           </tooltip-com>
-          <tooltip-com tip-title="亮色菜单">
-            <div>
+          <tooltip-com tip-title="顶部菜单">
+            <div class="svg-container" @click="() => changeSetting('menuMode', 'horizontal')">
               <n-image preview-disabled width="60" :src="headerDarkSvg" />
+              <n-badge dot color="#19be6b" v-if="menuMode === 'horizontal'" />
             </div>
           </tooltip-com>
         </n-space>
@@ -115,6 +117,7 @@ const {
   showBreadcrumbIcon,
   adminTitle,
   globalTheme,
+  menuMode,
   changeSetting
 } = toRefs(useSettings())
 // const settingsStore = useSettings()

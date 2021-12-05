@@ -1,5 +1,5 @@
 <template>
-  <n-collapse-transition class="logo-container" show>
+  <div class="logo-container">
     <n-icon size="30" class="logo-icon">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -17,17 +17,17 @@
       </svg>
     </n-icon>
 
-    <n-gradient-text class="logo-text" v-show="!props.collapsed" :size="18" type="info">
+    <n-gradient-text class="logo-text" v-show="!collapsed" :size="18" type="info">
       {{ adminTitle }}
     </n-gradient-text>
-  </n-collapse-transition>
+  </div>
 </template>
 
 <script lang="ts" setup>
 // props
-const props = withDefaults(
+withDefaults(
   defineProps<{
-    collapsed: boolean
+    collapsed?: boolean
     adminTitle?: string
   }>(),
   {}
@@ -36,14 +36,11 @@ const props = withDefaults(
 
 <style lang="scss" scoped>
 .logo-container {
-  width: 100%;
-  margin-top: 12px;
-  padding: 6px 0;
   display: flex;
   justify-content: center;
   align-items: center;
   .logo-text {
-    margin-left: 10px;
+    margin-left: 12px;
   }
 }
 </style>

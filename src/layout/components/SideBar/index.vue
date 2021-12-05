@@ -10,7 +10,12 @@
     @expand="toggleCollapsed"
     @collapse="toggleCollapsed"
   >
-    <TheLogo v-show="showLogo" :collapsed="collapsed" :adminTitle="adminTitle" />
+    <TheLogo
+      class="vertical-logo"
+      v-show="showLogo"
+      :collapsed="collapsed"
+      :adminTitle="adminTitle"
+    />
     <n-menu
       :inverted="inverted"
       :collapsed="collapsed"
@@ -38,9 +43,7 @@ withDefaults(
 )
 
 const { collapsed, toggleCollapsed } = toRefs(useApp())
-const { adminTitle, globalTheme } = toRefs(useSettings())
-
-const inverted = computed(() => globalTheme.value === 'sideDarkTheme')
+const { adminTitle, inverted } = toRefs(useSettings())
 
 const menuOptions = ref([
   {
@@ -72,3 +75,12 @@ export default {
   name: 'SideBar'
 }
 </script>
+
+<style lang="scss" scoped>
+.vertical-logo {
+  width: 100%;
+  height: 63px;
+  line-height: 63px;
+  border-bottom: 1px solid var(--border-color);
+}
+</style>

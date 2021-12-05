@@ -31,6 +31,9 @@ export const useSettings = defineStore({
     isFixedHeader,
     adminTitle
   }),
+  getters: {
+    inverted: (state) => state.globalTheme === 'sideDarkTheme'
+  },
   actions: {
     changeSetting(settingKey: TSettingKey, data?: string | boolean) {
       console.log(settingKey, data)

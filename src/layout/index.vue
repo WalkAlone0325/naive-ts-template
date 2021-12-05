@@ -1,6 +1,11 @@
 <template>
   <n-layout class="layout-container" has-sider position="absolute">
-    <SideBar :showLogo="showLogo" :showTrigger="showTrigger" :showBorder="showBorder" />
+    <SideBar
+      v-if="menuMode === 'vertical'"
+      :showLogo="showLogo"
+      :showTrigger="showTrigger"
+      :showBorder="showBorder"
+    />
     <n-layout>
       <n-scrollbar>
         <NavHeader />
@@ -26,7 +31,7 @@ import NavHeader from './components/NavHeader/index.vue'
 import AppMain from './components/AppMain.vue'
 import { useSettings } from '@/stores'
 
-const { isFixedHeader, showLogo, showTrigger, showBorder } = toRefs(useSettings())
+const { isFixedHeader, showLogo, showTrigger, showBorder, menuMode } = toRefs(useSettings())
 </script>
 
 <script lang="ts">
