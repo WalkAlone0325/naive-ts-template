@@ -22,7 +22,9 @@ module.exports = {
     }
   },
   plugins: ['vue', '@typescript-eslint', 'prettier'],
-  rules: {},
+  rules: {
+    'vue/multi-word-component-names': 0
+  },
   globals: {
     defineProps: 'readonly',
     defineEmits: 'readonly',

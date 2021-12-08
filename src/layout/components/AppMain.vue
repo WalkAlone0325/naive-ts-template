@@ -1,6 +1,10 @@
 <template>
-  <router-view>
-    <div style="height: 2000px">1</div>
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </transition>
   </router-view>
 </template>
 
