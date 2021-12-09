@@ -5,13 +5,6 @@
 declare module 'vue' {
   export interface GlobalComponents {
     GlobalDrawer: typeof import('./components/GlobalDrawer.vue')['default']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
-    IconCommunity: typeof import('./components/icons/IconCommunity.vue')['default']
-    IconDocumentation: typeof import('./components/icons/IconDocumentation.vue')['default']
-    IconEcosystem: typeof import('./components/icons/IconEcosystem.vue')['default']
-    IconRender: typeof import('./components/IconRender.vue')['default']
-    IconSupport: typeof import('./components/icons/IconSupport.vue')['default']
-    IconTooling: typeof import('./components/icons/IconTooling.vue')['default']
     NAvatar: typeof import('naive-ui')['NAvatar']
     NBadge: typeof import('naive-ui')['NBadge']
     NButton: typeof import('naive-ui')['NButton']
@@ -44,9 +37,7 @@ declare module 'vue' {
     NTooltip: typeof import('naive-ui')['NTooltip']
     PersonalSetting: typeof import('./components/PersonalSetting.vue')['default']
     SettingItem: typeof import('./components/SettingItem.vue')['default']
-    TheWelcome: typeof import('./components/TheWelcome.vue')['default']
     TooltipCom: typeof import('./components/TooltipCom.vue')['default']
-    WelcomeItem: typeof import('./components/WelcomeItem.vue')['default']
   }
 }
 

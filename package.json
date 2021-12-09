@@ -1,6 +1,6 @@
 {
-  "name": "vue-project",
-  "version": "0.0.0",
+  "name": "naive-ts-template",
+  "version": "0.1.0",
   "engines": {
     "node": ">=12.0.0"
   },
@@ -54,8 +54,7 @@
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
       "pnpm lint",
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ]
   }
 }
