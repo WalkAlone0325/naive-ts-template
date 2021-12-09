@@ -36,6 +36,7 @@
     "eslint-plugin-vue": "^8.1.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.1.2",
+    "mockjs": "^1.1.0",
     "mrm": "^3.0.10",
     "prettier": "^2.5.1",
     "sass": "^1.44.0",
@@ -44,6 +45,7 @@
     "unplugin-vue-components": "^0.17.4",
     "vite": "^2.6.14",
     "vite-plugin-compression": "^0.3.6",
+    "vite-plugin-mock": "^2.9.6",
     "vue-tsc": "^0.29.6"
   },
   "husky": {

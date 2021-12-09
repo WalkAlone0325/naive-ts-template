@@ -7,6 +7,8 @@ import viteCompression from 'vite-plugin-compression'
 import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
+import { viteMockServe } from 'vite-plugin-mock'
+import vite from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -32,6 +34,13 @@ export default defineConfig({
       threshold: 10240,
       algorithm: 'gzip',
       ext: '.gz'
+    }),
+    viteMockServe({
+      mockPath: 'mock',
+      injectCode: `
+        import { setupProdMockServer } from './setupProdMockServer';
+        setupProdMockServer();
+      `
     })
   ],
   resolve: {
