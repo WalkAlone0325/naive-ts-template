@@ -1,3 +1,10 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
+
+file='/test.js'
+
+if [ ! -f "file1" ]; then
+  echo "test.js 文件不存在"
+fi
+
 pnpm exec lint-staged
