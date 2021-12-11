@@ -24,7 +24,8 @@ module.exports = {
   },
   plugins: ['vue', '@typescript-eslint', 'prettier'],
   rules: {
-    'vue/multi-word-component-names': 0
+    'vue/multi-word-component-names': 0,
+    '@typescript-eslint/no-non-null-assertion': 0
   },
   globals: {
     defineProps: 'readonly',

@@ -23,6 +23,7 @@ export const constantRoutes: Array<RouteRecordRaw> = [
     path: '/',
     component: BaseLayout,
     redirect: '/dashboard',
+    name: 'Home',
     children: [
       {
         path: 'dashboard',

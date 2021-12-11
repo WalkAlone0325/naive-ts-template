@@ -8,7 +8,6 @@ import AutoImport from 'unplugin-auto-import/vite'
 import Components from 'unplugin-vue-components/vite'
 import { NaiveUiResolver } from 'unplugin-vue-components/resolvers'
 import { viteMockServe } from 'vite-plugin-mock'
-import vite from 'unplugin-auto-import/vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +19,7 @@ export default defineConfig({
       resolvers: [NaiveUiResolver()],
       dts: 'src/auto-import.d.ts',
       // '@vueuse/core', '@vueuse/head'
-      imports: ['vue', 'vue-router', 'pinia']
+      imports: ['vue', 'vue-router', '@vueuse/core', '@vueuse/head', 'pinia']
     }),
     Components({
       dirs: ['src/components'],

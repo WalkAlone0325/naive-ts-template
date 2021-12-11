@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@vicons/ionicons5": "^0.11.0",
+    "@vueuse/core": "^7.2.2",
+    "@vueuse/integrations": "^7.2.2",
     "naive-ui": "^2.21.3",
     "pinia": "^2.0.4",
     "vfonts": "^0.1.0",
