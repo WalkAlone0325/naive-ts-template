@@ -5,6 +5,7 @@ file='/test.js'
 
 if [ ! -f "file1" ]; then
   echo "test.js 文件不存在"
+  exit 0
 fi
 
 pnpm exec lint-staged
